@@ -1,0 +1,26 @@
+<?php 
+
+if(isset($_GET['FID'] )){
+
+	$FID = $_GET['FID'] ;
+	//connect
+	$conn = mysqli_connect('localhost','root','') or die('Cannot connect to the DB');
+	mysqli_select_db($conn,'temphumidnew') or die('Cannot select the DB');
+
+	//upload
+	
+	
+	
+	//$date =  getdate("Y-m-d h:i:sa");
+	//$date=getdate(date("U"));
+	$time_now=mktime(date('h')+4,date('i')+30);
+ $date =date('Y-m-d h:i:sa',$time_now);
+
+	$query = "insert into fingerid set FID='".$FID."', date = '".$date."' ";
+ 	$result = mysqli_query($conn,$query) or die('Errant query:  '.$query);
+
+}
+
+
+ ?>
+
